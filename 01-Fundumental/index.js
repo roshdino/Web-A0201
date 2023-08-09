@@ -1,3 +1,4 @@
+"use strict";
 // console.log(" Hello World ");
 var a = 5;
 var b = 8;
@@ -218,7 +219,7 @@ isAvailable = false;
 
 const price2 = isAvailable ? 300 : null;
 
-console.log(price2);
+// console.log(price2);
 //==========================
 
 const productPrice = 450;
@@ -227,4 +228,135 @@ const limitPrice = 500;
 const totalPrice =
   productPrice >= limitPrice ? 0.9 * productPrice : productPrice;
 
-console.log(totalPrice);
+// console.log(totalPrice);
+
+// Objects
+
+const person = {
+  name: "Amir",
+  age: 18,
+  job: "STUDENT",
+};
+
+const name = "Reza";
+
+// console.log(person.name);
+
+person.lastName = "Alavi";
+
+// console.log(person);
+
+const pet = {
+  category: "CAT",
+  age: 3,
+};
+
+const table = {
+  color: "Brown",
+  width: 160,
+  height: 100,
+  weight: {
+    value: 5,
+    unit: "KG",
+  },
+};
+
+const table2 = table;
+
+table2.color = "red";
+
+console.log("table", table);
+console.log("table2", table2);
+
+// table.color = "red";
+// table.weight.value = 10;
+
+// table["width"] = 170; //table.width
+
+// console.log(table);
+
+let count = 10;
+let count2 = count;
+count = count2;
+count2 = 20;
+
+console.log("count", count);
+console.log("count2", count2);
+
+// Array
+const foods = ["Pizza", "Pasta", "HotDog"];
+
+console.log(foods);
+
+// function
+
+// Function Declaration
+function plusOne(arg) {
+  arg = arg + 1;
+
+  console.log(arg);
+  // return arg
+}
+
+console.log(plusOne(100));
+
+// ConnectToDatabase()
+
+// Function Expression
+const logger = function (value) {
+  console.log("logger function called" + value);
+};
+
+logger("!");
+
+console.log(!!logger);
+
+const add = function (a, b) {
+  return a + b;
+};
+
+const addResult = add(5, 10);
+
+console.log(addResult);
+
+// Arrow Function
+
+const myFunction = (a, b) => {
+  return a + b;
+};
+
+console.log(myFunction(10, 8));
+
+const myFunction2 = (a, b) => a - b;
+
+console.log(myFunction2(5, 3));
+
+// Hoisting
+console.log(plus2(3));
+// console.log(plus4(3));
+
+function plus2(a) {
+  return a + 2;
+}
+
+const plus3 = function (b) {
+  return b + 3;
+};
+
+const plus4 = (b) => {
+  return b + 4;
+};
+
+console.log(myNewVar);
+
+var myNewVar = 10;
+const myNewConst = 20;
+
+//
+var myVar = "Ali";
+
+var myVar = 10;
+
+// myName = 12;
+
+// console.log(myName);
