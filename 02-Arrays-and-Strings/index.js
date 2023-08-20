@@ -71,10 +71,10 @@ const laatItem2 = numbers.at(-1);
 // console.log(numbers);
 
 //reverse
-numbers.reverse();
-console.log(numbers);
-numbers.reverse();
-console.log(numbers);
+// numbers.reverse();
+// console.log(numbers);
+// numbers.reverse();
+// console.log(numbers);
 
 // concat
 // const class1 = ["ali", "bahador", "hosein"];
@@ -122,8 +122,159 @@ console.log(numbers);
 const class1 = ["ali", "bahador", "hosein"];
 const classModified = [];
 
-for (let item of class1) {
+// for (let item of class1) {
+//   const newItem = { name: item };
+//   classModified.push(newItem);
+//   console.log(classModified);
+// }
+
+// forEach
+
+const loopClass = function (item) {
   const newItem = { name: item };
   classModified.push(newItem);
-  console.log(classModified);
+};
+
+class1.forEach(loopClass);
+// console.log('classModified', classModified)
+
+const foods = ["Pizza", "Pasta", "Humberger", "HotDog"];
+
+let foodObj = [];
+
+const loopFoods = function (item) {
+  const newItem = { name: item };
+  foodObj.push(newItem);
+};
+
+foods.forEach(loopFoods);
+
+// console.log(foodObj);
+
+students.push({
+  name: "Ali",
+  score: 15,
+});
+
+students.push({
+  name: "Hasan",
+  score: 10,
+});
+
+// <10 : D, 10-15: C, 15-18: B, >18: A;
+
+const calculateGrade = (score) => {
+  if (score < 10) {
+    return "D";
+  } else if (score >= 10 && score < 15) {
+    return "C";
+  } else if (score >= 15 && score < 18) {
+    return "B";
+  } else if (score >= 18) {
+    return "A";
+  }
+};
+
+students.forEach(function (item, index) {
+  const score = item.score;
+  item.grade = calculateGrade(score);
+});
+
+console.log(students);
+
+// map
+
+// ['Amir', 'Reza', ...]
+
+const getNames = function (item) {
+  return item.name;
+};
+
+//const studentNames = students.map((item) => item.name);
+
+const studentNames = students.map(getNames);
+
+// console.log(studentNames);
+
+function loopFoods2(item) {
+  return {
+    name: item,
+  };
 }
+
+const foodObj2 = foods.map(loopFoods2);
+const foodObj3 = foods.map((item) => {
+  return {
+    name: item,
+    category: "FastFood",
+  };
+});
+
+const foodObj4 = foods.map((item) => ({
+  name: item,
+}));
+
+// console.log(foodObj3);
+
+// filter
+
+const studentsWithGradeA = students.filter((item) => {
+  return item.grade === "A";
+});
+
+// console.log(studentsWithGradeA);
+
+const foodArray = [
+  { name: "Pizza", category: "FastFood" },
+  { name: "Pasta", category: "FastFood" },
+  { name: "Humberger", category: "FastFood" },
+  { name: "HotDog", category: "FastFood" },
+  { name: "Fesengan", category: "Traditional" },
+  { name: "BaghalaGhatogh", category: "Traditional" },
+  { name: "Gheime", category: "Traditional" },
+];
+
+const fastFoods = foodArray.filter((item) => item.category === "FastFood");
+const traditionalFoods = foodArray.filter(
+  (item) => item.category === "Traditional"
+);
+
+console.log("fastFoods", fastFoods);
+console.log("traditionalFoods", traditionalFoods);
+
+const movies = [
+  {
+    name: "Forrest Gump",
+    genre: "drama",
+  },
+  {
+    name: "The Dark Knight",
+    genre: "action",
+  },
+  {
+    name: "John Wick",
+    genre: "action",
+  },
+  {
+    name: "Mariege Story",
+    genre: "drama",
+  },
+];
+
+const dramaMovies = movies.filter((item) => item.genre === "drama");
+const actionMovies = movies.filter((item) => item.genre === "action");
+
+console.log("dramaMovies", dramaMovies);
+console.log("actionMovies", actionMovies);
+
+// find
+
+const johnWick = movies.find((item) => item.name === "John Wick");
+console.log(johnWick);
+
+const dramaMovie = movies.find((item) => item.genre === "drama");
+console.log(dramaMovie);
+
+// findLast
+const lastDramaMovie = movies.findLast((item) => item.genre === "drama");
+console.log(lastDramaMovie);
