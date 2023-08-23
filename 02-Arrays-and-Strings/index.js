@@ -239,8 +239,8 @@ const traditionalFoods = foodArray.filter(
   (item) => item.category === "Traditional"
 );
 
-console.log("fastFoods", fastFoods);
-console.log("traditionalFoods", traditionalFoods);
+// console.log("fastFoods", fastFoods);
+// console.log("traditionalFoods", traditionalFoods);
 
 const movies = [
   {
@@ -256,7 +256,7 @@ const movies = [
     genre: "action",
   },
   {
-    name: "Mariege Story",
+    name: "Marriage Story",
     genre: "drama",
   },
 ];
@@ -264,17 +264,126 @@ const movies = [
 const dramaMovies = movies.filter((item) => item.genre === "drama");
 const actionMovies = movies.filter((item) => item.genre === "action");
 
-console.log("dramaMovies", dramaMovies);
-console.log("actionMovies", actionMovies);
+// console.log("dramaMovies", dramaMovies);
+// console.log("actionMovies", actionMovies);
 
 // find
 
 const johnWick = movies.find((item) => item.name === "John Wick");
-console.log(johnWick);
+// console.log(johnWick);
 
 const dramaMovie = movies.find((item) => item.genre === "drama");
-console.log(dramaMovie);
+// console.log(dramaMovie);
 
 // findLast
 const lastDramaMovie = movies.findLast((item) => item.genre === "drama");
-console.log(lastDramaMovie);
+// console.log(lastDramaMovie);
+
+// findIndex, findLastIndex
+const johnWickIndex = movies.findIndex((item) => item.name === "John Wick");
+
+// console.log(johnWickIndex);
+
+const scores = [76, 56, 68, 80, 93, 65, 34, 99]; // score > 60
+
+// some
+const didAnyStudentPass = scores.some((item) => item > 60);
+// console.log("didAnyStudentPass", didAnyStudentPass);
+
+// every
+const didAllStudentsPass = scores.every((item) => item > 60);
+// console.log("didAllStudentsPass", didAllStudentsPass);
+
+// flat
+
+const compus = [1, 2, 3, [[[[[[[[[[[[[[4, 5]]]]]]]]]]]]]], [6]];
+
+const newCompus = compus.flat(Infinity);
+
+// console.log(newCompus);
+
+// input: [1, 4, 7]
+// output: [1, 2, 3, 4, 8, 12, 7, 14, 21]
+
+//[[1, 2, 3], [4, 8, 12], [7, 14, 21]]
+// [item, item*2, item*3]
+
+const input = [1, 4, 7];
+
+const output = input.map((item) => [item, item * 2, item * 3]).flat();
+// console.log(output);
+
+// flatMap
+
+const output2 = input.flatMap((item) => [item, item * 2, item * 3]);
+// console.log(output2);
+
+// slice
+const menu = [
+  "Pasta",
+  "Stake",
+  "Chicken",
+  "CornDog",
+  "IceCreame",
+  "Cesar Salad",
+  "HotChochalate",
+  "Coffee",
+  "Kebab",
+];
+
+const subMenu1 = menu.slice(2, 6);
+// console.log("subMenu1", subMenu1);
+// console.log("menu", menu);
+
+const subMenu2 = menu.slice(2);
+// console.log("subMenu2", subMenu2);
+
+// console.log(menu.slice(8));
+
+// console.log(menu.slice(-2));
+
+menu.splice(2, 2, "Pizza", "Burger");
+
+console.log(menu);
+
+// sort
+
+console.log(scores);
+
+const sortedScores = scores.sort((a, b) => {
+  // console.log({ a, b });
+  return a - b;
+});
+
+console.log(sortedScores);
+
+const advancedMenu = [
+  {
+    name: "Barg",
+    category: "Kebabs",
+  },
+  {
+    name: "Burger",
+    category: "Fastfoods",
+  },
+  {
+    name: "Torsh",
+    category: "Kebabs",
+  },
+  {
+    name: "Pizza",
+    category: "Fastfoods",
+  },
+  {
+    name: "Chenje",
+    category: "Kebabs",
+  },
+];
+
+const priorty = ["Kebabs", "Fastfoods"];
+
+const sortedFoods = advancedMenu.sort((a, b) => {
+  return priorty.indexOf(a.category) - priorty.indexOf(b.category);
+});
+
+console.log(sortedFoods);
