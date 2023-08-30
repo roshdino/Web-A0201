@@ -344,18 +344,18 @@ const subMenu2 = menu.slice(2);
 
 menu.splice(2, 2, "Pizza", "Burger");
 
-console.log(menu);
+// console.log(menu);
 
 // sort
 
-console.log(scores);
+// console.log(scores);
 
 const sortedScores = scores.sort((a, b) => {
   // console.log({ a, b });
   return a - b;
 });
 
-console.log(sortedScores);
+// console.log(sortedScores);
 
 const advancedMenu = [
   {
@@ -380,10 +380,63 @@ const advancedMenu = [
   },
 ];
 
-const priorty = ["Kebabs", "Fastfoods"];
+const priorty = ["Fastfoods", "Kebabs"];
 
-const sortedFoods = advancedMenu.sort((a, b) => {
-  return priorty.indexOf(a.category) - priorty.indexOf(b.category);
-});
+// const sortedFoods = advancedMenu.sort((a, b) => {
+//   return priorty.indexOf(a.category) - priorty.indexOf(b.category);
+// });
 
-console.log(sortedFoods);
+const alphabetSortededList = advancedMenu.sort(
+  (a, b) => a.name.charCodeAt() - b.name.charCodeAt()
+);
+
+// const alphabetSortededList = advancedMenu.sort(
+//   (a, b) => a.name.charCodeAt() - b.name.charCodeAt()
+// );
+
+// console.log("alphabetSortededList", alphabetSortededList);
+
+// reduce
+const transactions = [200, -300, 450, -1000, 2100];
+
+// let ballance = 0;
+
+// transactions.forEach((item) => {
+//   ballance += item;
+// });
+
+const ballance = transactions.reduce(function (acc, item) {
+  return acc + item;
+}, 0);
+
+// console.log("ballance", ballance);
+
+const fruitNames = ["apple", "banana", "orange", "apple", "banana", "banana"];
+
+const fruitCounts = fruitNames.reduce(function (acc, item) {
+  if (acc[item]) {
+    acc[item] += 1;
+  } else {
+    acc[item] = 1;
+  }
+  return acc;
+}, {});
+
+console.log("fruitCounts", fruitCounts);
+
+const words = ["I", "love", "JavaScript"];
+
+const sentence = words.reduce(
+  (acc, item) => (acc ? acc + " " + item : item),
+  ""
+);
+
+console.log("sentence", sentence);
+
+const numberArray = [34, 23, 56, 98, 121, 58];
+
+const getMax = (a, b) => Math.max(a, b);
+
+const max = numberArray.reduce(getMax, numberArray[0]);
+
+console.log("max", max);
