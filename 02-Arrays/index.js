@@ -387,7 +387,7 @@ const priorty = ["Fastfoods", "Kebabs"];
 // });
 
 const alphabetSortededList = advancedMenu.sort(
-  (a, b) => a.name.charCodeAt() - b.name.charCodeAt()
+  (a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0)
 );
 
 // const alphabetSortededList = advancedMenu.sort(
