@@ -88,7 +88,7 @@ function add(a, b) {
 //____________The this Keyword_____________
 
 // console.log('this', this)
-console.log("global", this);
+// console.log("global", this);
 
 function myFunc() {
   console.log("regular f", this);
@@ -125,6 +125,46 @@ amir.calcAge = reza.calcAge;
 
 const calc = amir.calcAge;
 
-calc();
+// calc();
 
 //__________ Objects vs. primitives___________
+
+const person = {
+  name: 'Ali',
+  age: 35,
+  parents: {
+    fatherName: 'hasan'
+  }
+}
+
+const newPerson = person;
+
+// console.log('person', person);
+
+newPerson.name = 'Reza';
+
+// console.log('person', person);
+
+// Array shallow copy
+
+const names = ['ali', 'reza'];
+
+const namesCopy = names.slice();
+
+namesCopy.push('amir');
+
+console.log(namesCopy);
+
+// Object shallow copy
+const personCopy = Object.assign(person, {});
+
+personCopy.name = 'reza';
+
+console.log(person);
+
+
+
+
+
+
+

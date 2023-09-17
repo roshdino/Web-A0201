@@ -7,6 +7,7 @@ const data = {
   rottenTomatoesScore: 97,
   metacriticScore: 84,
   isUserFavorite: true,
+  isOnChart: null,
   favoriteCount: 12,
   awards: ["Acadamy Award", "Cannes Festival"],
   viewCount: 556,
@@ -67,45 +68,104 @@ const data = {
       type: "STAR",
     },
   ],
+
   getAwards() {
-    return this.awards;
+    return ['return1', 'return2'];
   },
 };
 
-/*
+
 //--------------Destructuring----------------
 
 // Destructuring Arrays
+
+// const awards = data.awards;
+
+// const firstAward = awards[0];
+// const secondAward = awards[1];
+
+let [firstAward, secondAward] = data.awards;
 
 
 
 // Multiple return values from a function
 
+const [return1, return2] = data.getAwards();
+
+// console.log(return1)
+
 // Switching variables
+
+[firstAward, secondAward] = [secondAward, firstAward];
+
 
 // Nested destructuring
 
+const nestedArr = [1, 2, [3, 4]];
+
+const [a, b, [c, d]] = nestedArr;
+
+// console.log({a, b, c, d})
+
+
 // Default values
+
+const students = ['Ali', 'Reza'];
+
+const [student1, student2, student3 = 'Error'] = students;
+
+// console.log(student1, student2, student3);
+
 
 // Destructuring Objects
 
+const {title: mainTitle, image, imdbScore} = data;
+
+// console.log(imdbScore);
+
+// console.log(mainTitle)
+
+
 // Default values
 
+const {title, name = 'Not Setted', isOnChart = false} = data;
+
+// console.log(isOnChart)
+
+
 // Nested objects
+const {boxOffice:{amount}} = data;
+
+console.log(amount);
+
 
 //--------------Spread Operator----------------
 // For Arrays
 
-// Copy array
+const strs1 = ['a', 'b', 'c'];
+const strs2 = [...strs1];
+const strs3 = ['e', 'f', 'g'];
 
-// Join arrays
+console.log([...strs1, ...strs3]);
 
-// console.log(result)
 
 // Iterables: arrays, strings, maps, sets.
 
+const js = 'javascript';
+
+console.log([...js])
+
 
 // For Objects
+
+const obj = {...data.budget}
+
+console.log(obj)
+
+
+/*
+
+
 
 //------- Rest Pattern and Parameters--------
 // SPREAD, because on RIGHT side of =
