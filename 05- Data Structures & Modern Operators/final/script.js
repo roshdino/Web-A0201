@@ -17,10 +17,7 @@ const data = {
   cover:
     "https://api.tvrooz.com/uploads/2023/1/the-anarchists-s01-ka-1920.jpeg",
   createdAt: "سه‌شنبه 27 دی  1401 ساعت 16:27",
-  boxOffice: {
-    amount: 1450000,
-    currency: "DOLLAR",
-  },
+
   budget: {
     amount: 120000,
     currency: "EURO",
@@ -70,10 +67,9 @@ const data = {
   ],
 
   getAwards() {
-    return ['return1', 'return2'];
+    return ["return1", "return2"];
   },
 };
-
 
 //--------------Destructuring----------------
 
@@ -86,8 +82,6 @@ const data = {
 
 let [firstAward, secondAward] = data.awards;
 
-
-
 // Multiple return values from a function
 
 const [return1, return2] = data.getAwards();
@@ -98,7 +92,6 @@ const [return1, return2] = data.getAwards();
 
 [firstAward, secondAward] = [secondAward, firstAward];
 
-
 // Nested destructuring
 
 const nestedArr = [1, 2, [3, 4]];
@@ -107,65 +100,71 @@ const [a, b, [c, d]] = nestedArr;
 
 // console.log({a, b, c, d})
 
-
 // Default values
 
-const students = ['Ali', 'Reza'];
+const students = ["Ali", "Reza"];
 
-const [student1, student2, student3 = 'Error'] = students;
+const [student1, student2, student3 = "Error"] = students;
 
 // console.log(student1, student2, student3);
 
-
 // Destructuring Objects
 
-const {title: mainTitle, image, imdbScore} = data;
+const { title: mainTitle, image, imdbScore } = data;
 
 // console.log(imdbScore);
 
 // console.log(mainTitle)
 
-
 // Default values
 
-const {title, name = 'Not Setted', isOnChart = false} = data;
+const { title, name = "Not Setted", isOnChart = false } = data;
 
 // console.log(isOnChart)
 
-
 // Nested objects
-const {boxOffice:{amount}} = data;
+// const {
+//   boxOffice: { amount },
+// } = data;
 
-console.log(amount);
-
+// console.log(amount);
 
 //--------------Spread Operator----------------
 // For Arrays
 
-const strs1 = ['a', 'b', 'c'];
-const strs2 = [...strs1];
-const strs3 = ['e', 'f', 'g'];
+const strs1 = ["a", "b", "c"];
+const strs2 = [...strs1, "d"]; // ...str1 === 'a', 'b', 'c'
+const strs3 = ["e", "f", "g"];
 
-console.log([...strs1, ...strs3]);
-
+// console.log([...strs1, ...strs3]);
 
 // Iterables: arrays, strings, maps, sets.
 
-const js = 'javascript';
+const js = "javascript";
 
-console.log([...js])
-
+// console.log(...js);
 
 // For Objects
 
-const obj = {...data.budget}
+const obj = { ...data.budget };
 
-console.log(obj)
+// console.log(obj);
 
+const cat = {
+  name: "Kitty",
+  gender: "female",
+  color: "white",
+};
 
-/*
+const myCat = {
+  ...cat,
+  owner: "me",
+  goOut() {
+    console.log("Walking in the park!");
+  },
+};
 
-
+// console.log(myCat);
 
 //------- Rest Pattern and Parameters--------
 // SPREAD, because on RIGHT side of =
@@ -174,15 +173,74 @@ console.log(obj)
 
 // Objects
 
+const { id, title: newTitle, ...media } = data;
+
+// console.log(media);
+
 //Arrays
 
+const myStudents = students.concat(["Amir", "Hasan"]);
+const myStudents2 = [...students, "Amir", "Hasan"];
+
+// console.log(myStudents);
+
+const [ali, ...otherStudents] = myStudents2;
+// console.log(otherStudents);
+
 // Functions
+
+const add = function (...args) {
+  console.log(...args);
+  return args;
+};
+
+// add(1, 2);
+// add(1, 2 * 5, add(2, 3));
 
 //----------- Modern operators-------------
 // Short Circuiting (&& and ||)
 
+//falsy: undefined, null, '', 0, false
+const myFirstName = "";
+const myLastName = "Maleki";
+
+const myName = myFirstName || myLastName;
+
+// console.log(0 || null || undefined);
+
+const isAvailable = true;
+
+const price = isAvailable && 10000;
+
+// console.log(price);
+
+// console.log("0" && "null" && "undefined");
+
 // The Nullish Coalescing Operator
+
+// console.log(null ?? "" ?? false);
 
 // Optional Chaining
 
-*/
+// console.log(data.boxOffice?.amount);
+
+// Set
+
+const uniqueIds = new Set();
+
+const obj1 = {}
+
+uniqueIds.add(0).add('1').add(obj1).add([]);
+
+
+console.log(uniqueIds);
+
+console.log(uniqueIds.has(obj1));
+
+const nums = [0, 1, 2, 0, 3, 4, 1];
+
+const uniqueNums = [...new Set(nums)];
+
+console.log(uniqueNums);
+console.log(uniqueNums.length);
+console.log(uniqueIds.size);
