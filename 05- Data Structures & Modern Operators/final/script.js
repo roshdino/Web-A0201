@@ -233,14 +233,36 @@ const obj1 = {}
 uniqueIds.add(0).add('1').add(obj1).add([]);
 
 
-console.log(uniqueIds);
+// console.log(uniqueIds);
 
-console.log(uniqueIds.has(obj1));
+// console.log(uniqueIds.has(obj1));
 
 const nums = [0, 1, 2, 0, 3, 4, 1];
 
 const uniqueNums = [...new Set(nums)];
 
-console.log(uniqueNums);
-console.log(uniqueNums.length);
-console.log(uniqueIds.size);
+// console.log(uniqueNums);
+// console.log(uniqueNums.length);
+// console.log(uniqueIds.size);
+uniqueIds.delete('1');
+
+// Map
+
+const mapItems = new Map();
+
+console.log([1, 2]);
+console.log({name: 'Ali'});
+mapItems.set('first', 123);
+mapItems.set(false, {});
+mapItems.set(12, []);
+mapItems.set({}, []);
+// mapItems.delete('first');
+mapItems.entries
+console.log(Array.from(mapItems.entries()))
+console.log([...mapItems])
+
+console.log(mapItems.get('first'))
+
+console.log(mapItems);
+
+
